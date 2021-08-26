@@ -129,16 +129,10 @@ function checkStringEquality() {
 	let completeTestText;
 	let parsedTestText;
 
-	// if(dropdownChoice.value == 'alphanumeric'){
-	// 	completeTestText = completeRandomText;
-	// 	parsedTestText = completeRandomText.substring(0, textInput.length);
-	// }
-	// else {
+	
 		completeTestText = APItextData;
 		parsedTestText = APItextData.substring(0, textInput.length);
-	// }
-
-	// check for equality to input
+	
 	console.log(completeTestText.length);
 	console.log(parsedTestText.length);
 
@@ -176,7 +170,7 @@ function highlightWords(){
 
 	// dont listen for shift and ctrl
 	if(event.which != 16 && event.which != 17){
-		if(dropdownChoice.value == 'alphanumeric'){
+		if(dropdownChoice.value == 'easy'){
 			if(event.which == 8){
 				letterArray[(letterIndex-1)].style.background = "lightblue";
 				letterIndex = letterIndex-2;
@@ -224,22 +218,6 @@ function createLetterArray(){
 	}
 }
 
-function createRandomText() {
-    let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    testText.innerHTML = "";
-    letterArray = [];
-    completeRandomText = "";
-  
-    for (let i = 0; i < 50; i++) {
-            let randomChar = possible.charAt(Math.floor(Math.random() * possible.length));
-            completeRandomText += randomChar;
-            let separatedRandomChar = document.createElement("span");
-            let node = document.createTextNode(randomChar);
-            separatedRandomChar.appendChild(node);
-            letterArray.push(separatedRandomChar);
-            testText.appendChild(separatedRandomChar);
-      }
-  }
 
   function createHTML(APIdata, isAPItext){
 	// only create the HTML elements if data is from an API call
@@ -273,29 +251,19 @@ function changeTestText() {
 	restartTest();
 	let isAPItext;
 
-	// if(dropdownChoice.value == 'words'){
-	// 	createRandomWordsString();
-	// }
-
-	// changes innerHTML based on what is selected from the dropdown menu
+	
 	if(dropdownChoice.value == 'easy'){
         isAPItext = true;
 		APItextData = APItextData[0];
 		createHTML(APItextData, isAPItext);
-		// isAPItext = true;
-		// APItextData = APItextData.easy;
-		// createHTML(APItextData, isAPItext);
+		
 	}
 	else if(dropdownChoice.value == 'difficult'){
 		isAPItext = true;
 		APItextData = APItextData[0];
 		createHTML(APItextData, isAPItext);
 	}
-	// else if(dropdownChoice.value == 'words'){
-	// 	APItextData = randomWordsString;
-	//   	isAPItext = true;
-	// 	createHTML(APItextData, isAPItext);
-	// }
+	
 }
 
 function APIcall(callback){
@@ -320,7 +288,7 @@ function APIcall(callback){
 	AJAXrequest.open('GET', APIurl);
 	AJAXrequest.send();
 }
-
+APIcall(changeTestText);
 text.addEventListener("keyup", checkStringEquality, false);
 text.addEventListener("keydown", highlightWords, false);
 text.addEventListener("keypress", startTimer, false);
@@ -330,37 +298,3 @@ restartbtn.addEventListener("click", restartTest, false);
 
 
 
-// function graph(mis)
-// {
-
-
-		// let mistake1 = mis;
-		// google.charts.load('current', {'packages':['corechart']});
-		// google.charts.setOnLoadCallback(drawChart);
-
-
-		// function drawChart() {
-
-
-
-		// 	let crr = [];
-		// 		crr.push(['Result' , 'Results'])
-		// 		crr.push([ "mistake" , mistake1 ])
-		// 		crr.push([ "correct" , 100-mistake1 ])
-				
-		// 		console.log(crr)
-		// 		var data = google.visualization.arrayToDataTable(crr);
-			
-		
-
-
-		// 	var options = {'title':'Results', 'width':550, 'height':300};
-
-			
-		// 	var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-		// 	chart.draw(data, options);
-
-		
-			
-		// }
-// }
