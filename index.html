@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="myProgress">
+		<div id="myBar"></div>
+	  </div>
+    <div class="container"> 
+		<!--create the box to contain the quote-->
+		<section class="quote-box">
+			<div id="quote-api">
+				<p> Your paragraph........ </p>
+			</div>
+		</section>
+	</div>
+	
+    <div class="container">
+		<section id="clock">
+			<h2 style="color: brown;">Timer</h2>
+			<div><h1 class="timer">00:00:00</h1></div>
+			<div><h1 class="CPM"> CPM: 00 </h1></div>
+			<div><h1 class="WPM"> WPM: 00 </h1></div>
+		</section>
+        <select class="select-box">
+            <option value="easy">Easy</option>
+            <!-- <option value="medium">Medium</option> -->
+            <option value="difficult">Difficult</option>
+           
+        </select>
+		<section>
+			<textarea id="typing-box" rows="5" placeholder="The clock starts when you begin typing"></textarea>
+		</section>
+		
+		
+		
+		<section id="option-and-btns">
+				<button class="btn" id="new-text">Get paragraph</button>
+				<button class="btn" id="restart" onclick="location.reload()">Restart</button>
+		</section>
+	</div>
+	<div id = "nn">
+		<h1>Number of tasks completed</h1>
+		<h2 id = "num"></h2>
+	</div>
+	<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+    <script src="script.js"></script>
+</body>
+</html>
